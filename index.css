@@ -22,6 +22,7 @@ body {
     /* [字串] */
     text-align: left;
 }
+
 *,
 *:before,
 *:after {
@@ -29,14 +30,37 @@ body {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
+
 .contenter {
     /* [flex設定] */
     display: flex;
-    justify-content: left;
+    justify-content: center;
     /* [盒模型] */
     width: 100%;
     /* margin: auto; */
-    padding: 10px 150px;
+    padding: 10px 0px;
+}
+
+#preloader {
+    /*   這是整個會蓋住畫面的底色色塊  */
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0%;
+    top: 0%;
+    background-color: black;
+    z-index: 9999;
+}
+
+#status {
+    /*   這是中間loading的gif坐標css,我們盡量讓他畫面置中  */
+    position: fixed;
+    width: 218px;
+    height: 419px;
+    margin-left: -140px;
+    margin-top: -160px;
+    left: 50%;
+    top: 50%;
 }
 
 /* 左側全部 */
@@ -61,9 +85,11 @@ body {
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
         rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
+
 #Myself_img {
     width: 300px;
 }
+
 .article {
     padding: 50px 0 0 0;
 }
@@ -75,6 +101,7 @@ body {
     /* [前後] */
     z-index: 0;
 }
+
 .rightPage {
     /* 背景圖片 */
     background-image: url("paper_background.png");
@@ -92,14 +119,17 @@ body {
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
         rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
+
 .carousel-inner {
     height: 300px;
     width: 100%;
 }
+
 .btn-more {
     background-color: #6f1d1b;
     color: white;
 }
+
 .btn-more:hover {
     background-color: #9b2226;
     color: white;
@@ -109,42 +139,52 @@ body {
 .btn-group {
     width: 90%;
 }
+
 .btn-one {
     background-color: #283618;
     color: white;
 }
+
 .btn-one:hover {
     background-color: #ccd5ae;
     color: black;
 }
+
 .btn-two {
     background-color: #606c38;
     color: white;
 }
+
 .btn-two:hover {
     background-color: #e9edc9;
     color: black;
 }
+
 .btn-three {
     background-color: #bb9457;
     color: white;
 }
+
 .btn-three:hover {
     background-color: #fefae0;
     color: black;
 }
+
 .btn-four {
     background-color: #dda15e;
     color: white;
 }
+
 .btn-four:hover {
     background-color: #faedcd;
     color: black;
 }
+
 .btn-five {
     background-color: #bc6c25;
     color: white;
 }
+
 .btn-five:hover {
     background-color: #d4a373;
     color: black;
