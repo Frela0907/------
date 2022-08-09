@@ -66,7 +66,7 @@ body {
 /* 左側全部 */
 .leftPage {
     /* 背景圖片 */
-    background-image: url("paper_background.png");
+    background-image: url("paper_background.jpg");
     background-size: cover;
     /* [盒模型] */
     /* margin: 50px; */
@@ -104,7 +104,7 @@ body {
 
 .rightPage {
     /* 背景圖片 */
-    background-image: url("paper_background.png");
+    background-image: url("paper_background.jpg");
     background-size: cover;
     /* [盒模型] */
     /* margin: 50px; */
