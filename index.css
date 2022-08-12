@@ -30,16 +30,6 @@ body {
     box-sizing: border-box;
 }
 
-.contenter {
-    /* [flex設定] */
-    display: flex;
-    justify-content: center;
-    /* [盒模型] */
-    width: 100%;
-    /* margin: auto; */
-    padding: 10px 0px;
-}
-
 #preloader {
     /*   這是整個會蓋住畫面的底色色塊  */
     position: fixed;
@@ -52,7 +42,7 @@ body {
 }
 
 #status {
-    /*   這是中間loading的gif坐標css,我們盡量讓他畫面置中  */
+    /*   這是中間loading的gif,畫面置中  */
     position: fixed;
     width: 218px;
     height: 419px;
@@ -62,71 +52,151 @@ body {
     top: 50%;
 }
 
-.leftContainer {
-    margin: 50px 0 0 0;
+.contenter {
+    /* [flex設定] */
+    display: flex;
+    justify-content: center;
+    /* [盒模型] */
+    width: 100%;
+    /* margin: auto; */
+    padding: 10px 0px;
 }
 
 /* 左側全部 */
+.leftContainer {}
+
 .leftPage {
     /* 背景圖片 */
     background-image: url("paper_background.jpg");
     background-size: cover;
-    /* [盒模型] */
-    /* margin: 50px; */
-    padding: 50px;
-    /* [長寬] */
-    width: 500px;
-    height: 700px;
-    /* [顏色] */
-    /* background: #f5f5f5; */
-    color: black;
-    /* [旋轉] */
-    transform: rotate(-7deg);
-    /* [前後] */
-    z-index: 1;
-
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-        rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
-#Myself_img {
-    width: 300px;
-}
+#Myself_img {}
 
-.article {
-    padding: 50px 0 0 0;
-}
+.article {}
 
 /* 右側全部 */
-.rightContainer {
-    position: relative;
-    width: 500px;
-    height: 770px;
-    /* [前後] */
-    z-index: 0;
-}
+.rightContainer {}
 
 .rightPage {
     /* 背景圖片 */
     background-image: url("paper_background.jpg");
     background-size: cover;
-    /* [盒模型] */
-    /* margin: 50px; */
-    padding: 20px;
-    /* [長寬] */
-    width: 500px;
-    height: 720px;
-    /* [顏色] */
-    /* background: #f5f5f5; */
-    color: black;
-
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-        rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
-.carousel-inner {
-    height: 300px;
-    width: 100%;
+.carousel-inner {}
+
+@media only screen and (max-width:900px) {
+    .body {
+        font-family: "Open Sans";
+        font-weight: 400;
+        font-size: 12px;
+    }
+
+    .contenter {
+        display: block;
+        padding: 0;
+    }
+
+    /* 左側全部 */
+    .leftPage {
+        display: flex;
+    }
+
+    .image {
+        width: 30%;
+        margin: auto;
+        padding: 20px;
+    }
+
+    #Myself_img {
+        width: 100%;
+    }
+
+    .article {
+        width: 70%;
+        margin: 10px;
+        font-weight: 400;
+        font-size: 14px;
+    }
+
+    /* 右側全部 */
+    /* Bookmarks */
+    .btn-group {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width:900px) {
+
+    /* 左側全部 */
+    .leftContainer {
+        margin: 50px 0 0 0;
+    }
+
+    .leftPage {
+        /* [盒模型] */
+        /* margin: 50px; */
+        padding: 50px;
+        /* [長寬] */
+        width: 500px;
+        height: 700px;
+        /* [顏色] */
+        /* background: #f5f5f5; */
+        color: black;
+        /* [旋轉] */
+        transform: rotate(-7deg);
+        /* [前後] */
+        z-index: 1;
+
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+            rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    }
+
+    #Myself_img {
+        width: 300px;
+    }
+
+    .article {
+        padding: 50px 0 0 0;
+    }
+
+    /* 右側全部 */
+    .rightContainer {
+        position: relative;
+        width: 500px;
+        height: 770px;
+        /* [前後] */
+        z-index: 0;
+    }
+
+    .rightPage {
+        /* 背景圖片 */
+        background-image: url("paper_background.jpg");
+        background-size: cover;
+        /* [盒模型] */
+        /* margin: 50px; */
+        padding: 20px;
+        /* [長寬] */
+        width: 500px;
+        height: 720px;
+        /* [顏色] */
+        /* background: #f5f5f5; */
+        color: black;
+
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+            rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    }
+
+    .carousel-inner {
+        height: 300px;
+        width: 100%;
+    }
+
+    /* Bookmarks */
+    .btn-group {
+        width: 90%;
+    }
 }
 
 .btn-more {
@@ -139,17 +209,13 @@ body {
     color: white;
 }
 
-/* Bookmarks */
-.btn-group {
-    width: 90%;
-}
-
 .btn-one {
     background-color: #283618;
     color: white;
 }
 
-.btn-one:hover {
+.btn-one:hover,
+.btn-one:focus {
     background-color: #ccd5ae;
     color: black;
 }
@@ -159,7 +225,8 @@ body {
     color: white;
 }
 
-.btn-two:hover {
+.btn-two:hover,
+.btn-two:focus {
     background-color: #e9edc9;
     color: black;
 }
@@ -169,7 +236,8 @@ body {
     color: white;
 }
 
-.btn-three:hover {
+.btn-three:hover,
+.btn-three:focus {
     background-color: #fefae0;
     color: black;
 }
@@ -179,7 +247,8 @@ body {
     color: white;
 }
 
-.btn-four:hover {
+.btn-four:hover,
+.btn-four:focus {
     background-color: #faedcd;
     color: black;
 }
@@ -189,7 +258,8 @@ body {
     color: white;
 }
 
-.btn-five:hover {
+.btn-five:hover,
+.btn-five:focus {
     background-color: #d4a373;
     color: black;
 }
