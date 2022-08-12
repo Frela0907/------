@@ -133,12 +133,12 @@ function initLeftContainer() {
         `
     } else {
         articleHTML += `
-        <span class="badge rounded-pill bg-primary">姓名：馬儀鈞</span>
-        <span class="badge rounded-pill bg-secondary">性別：女</span>
-        <span class="badge rounded-pill bg-success">年齡：24歲</span>
-        <span class="badge rounded-pill bg-danger">學歷：國立中正大學心理研究所</span>
-        <span class="badge rounded-pill bg-warning text-dark">0963-012-743</span>
-        <span class="badge rounded-pill bg-info text-dark">frela0907@gmail.com</span>
+        <span class="badge rounded-pill bg-primary"><i class="fa-fw fas fa-user-circle"></i> 馬儀鈞</span>
+        <span class="badge rounded-pill bg-secondary"><i class="fa-fw fas fa-female"></i> 女</span>
+        <span class="badge rounded-pill bg-success"><i class="fa-fw fas fa-birthday-cake"></i> 24歲</span>
+        <span class="badge rounded-pill bg-danger"><i class="fa-fw fas fa-graduation-cap"></i> 國立中正大學心理研究所</span>
+        <span class="badge rounded-pill bg-warning text-dark"><i class="fa-fw fas fa-phone"></i> 0963-012-743</span>
+        <span class="badge rounded-pill bg-info text-dark"><i class="fa-fw fas fa-envelope"></i> <a href="mailto:frela0907@gmail.com">frela0907@gmail.com</a></span>
         `
     }
     return articleHTML

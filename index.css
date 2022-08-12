@@ -76,7 +76,7 @@ body {
 .article {}
 
 /* 右側全部 */
-#Default_img{
+#Default_img {
     width: 100%;
 }
 
@@ -89,12 +89,15 @@ body {
 }
 
 .carousel-inner {}
-@media only screen and (max-width:424px){
+
+@media only screen and (max-width:424px) {
+
     /* Bookmarks */
     .btn-group {
         /* Writing-mode: vertical-rl; */
     }
-    .btn{
+
+    .btn {
         /* Writing-mode: vertical-lr; */
     }
 }
@@ -103,7 +106,7 @@ body {
     .body {
         font-family: "Open Sans";
         font-weight: 400;
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .contenter {
@@ -129,13 +132,16 @@ body {
     .article {
         width: 60%;
         margin: auto;
+    }
+
+    .rounded-pill {
         font-weight: 400;
         font-size: 14px;
     }
 
     /* 右側全部 */
 
-    .rightPage{
+    .rightPage {
         width: 100%;
         height: 600px;
     }
