@@ -76,6 +76,10 @@ body {
 .article {}
 
 /* 右側全部 */
+#Default_img{
+    width: 100%;
+}
+
 .rightContainer {}
 
 .rightPage {
