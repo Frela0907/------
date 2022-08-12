@@ -61,9 +61,10 @@ function ReplaceBriefIntroHTML(PageNum) {
     let BriefIntroHTML = `
     <!-- 簡短介紹 -->
     <div class="card">
-        <div class="card-body shadow">
-            ${briefIntroReplace[PageNum]}
-        </div>
+    <div class="card-body">
+        <h5 class="card-title">${briefIntroReplace[PageNum]}</h5>
+        <p class="card-text">BriefIntro</p>
+    </div>
     </div>
     `
     return BriefIntroHTML
@@ -100,13 +101,61 @@ let MoreHTML = `
 </div>
 `
 let DefaultImgHTML = `
-
 `
 
 let LeftContainer = document.querySelector(".leftContainer");
 let RightPage = document.querySelector(".rightPage");
 let BookmarkGroup = document.querySelector(".btn-group");
 
+let width;
+$(window).resize(function () {
+    LeftContainer.innerHTML = `
+    <!-- 左頁 -->
+    <div class="leftPage">
+        <!-- 頭貼 -->
+        <div class="image">
+            <img id="Myself_img" src="resume_picture.jpg" class="rounded-circle shadow rounded mx-auto d-block"
+                alt="...">
+        </div>
+        <!-- 個人資料 -->
+        <div class="article">
+        ${initLeftContainer()}
+        </div>
+    </div>
+    `
+});
+
+function initLeftContainer() {
+    width = $(window).width();
+    let articleHTML = ``
+    if (width >= 768) {
+        articleHTML += `
+        <ul class="list-group shadow">
+            <li button type="button" class="list-group-item">&emsp;個人資料</li>
+            <li class="list-group-item">
+                <i class="fa-fw fas fa-user-circle"></i>&emsp;姓名：馬儀鈞<br>
+                <i class="fa-fw fas fa-female"></i>&emsp;性別：女<br>
+                <i class="fa-fw fas fa-birthday-cake"></i>&emsp;生日：1997/10/8 ; 年齡：24歲<br>
+                <i class="fa-fw fas fa-graduation-cap"></i>&emsp;學歷：國立中正大學心理研究所 就學中<br>
+                <i class="fa-fw fas fa-phone"></i>&emsp;主要手機：0963-012-743<br>
+                <i class="fa-fw fas fa-envelope"></i>&emsp;E-mail：<a
+                    href="mailto:frela0907@gmail.com">frela0907@gmail.com</a><br>
+                <i class="fa-fw fas fa-map-marker-alt"></i>&emsp;通訊地址：嘉義市文中街***
+            </li>
+        </ul>
+        `
+    } else {
+        articleHTML += `
+        <span class="badge rounded-pill bg-primary">姓名：馬儀鈞</span>
+        <span class="badge rounded-pill bg-secondary">性別：女</span>
+        <span class="badge rounded-pill bg-success">年齡：24歲</span>
+        <span class="badge rounded-pill bg-danger">學歷：國立中正大學心理研究所</span>
+        <span class="badge rounded-pill bg-warning text-dark">0963-012-743</span>
+        <span class="badge rounded-pill bg-info text-dark">frela0907@gmail.com</span>
+        `
+    }
+    return articleHTML
+}
 
 //初始化
 //LeftPage 將資料搬到ＪＳ中用inner html放入
@@ -120,20 +169,7 @@ LeftContainer.innerHTML = `
     </div>
     <!-- 個人資料 -->
     <div class="article">
-        <ul class="list-group shadow">
-            <li class="list-group-item">&emsp;個人資料</li>
-            <li class="list-group-item">
-                <i class="fa-fw fas fa-user-circle"></i>&emsp;姓名：馬儀鈞<br>
-                <i class="fa-fw fas fa-female"></i>&emsp;性別：女<br>
-                <i class="fa-fw fas fa-birthday-cake"></i>&emsp;生日：1997/10/8 ; 年齡：24歲<br>
-                <i class="fa-fw fas fa-graduation-cap"></i>&emsp;學歷：國立中正大學心理研究所 就學中<br>
-                <i class="fa-fw fas fa-phone"></i>&emsp;主要手機：0963-012-743<br>
-                <i class="fa-fw fas fa-envelope"></i>&emsp;E-mail：<a
-                    href="mailto:frela0907@gmail.com">frela0907@gmail.com</a><br>
-                <i class="fa-fw fas fa-map-marker-alt"></i>&emsp;通訊地址：嘉義市文中街***
-            </li>
-
-        </ul>
+    ${initLeftContainer()}
     </div>
 </div>
 `
