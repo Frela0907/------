@@ -92,7 +92,10 @@ body {
 @media only screen and (max-width:424px){
     /* Bookmarks */
     .btn-group {
-        Writing-mode: vertical-lr;
+        /* Writing-mode: vertical-rl; */
+    }
+    .btn{
+        /* Writing-mode: vertical-lr; */
     }
 }
 

@@ -1,8 +1,10 @@
+// 讀取畫面
 $(window).load(function () { // 確認整個頁面讀取完畢再將這三個div隱藏起來
     $("#status").delay(2000).fadeOut(2000); //delay --> 延遲幾秒才fadeOut
     $("#preloader").delay(2000).fadeOut(2000);
 })
 
+//Bootstrap 模板
 let briefIntroReplace = [
     '諮商輔導',
     '社會學',
@@ -10,7 +12,6 @@ let briefIntroReplace = [
     '人力資源',
     '網頁前端'
 ]
-//Bootstrap 模板
 let SideShowHTML = `
 <!-- 圖片輪播 -->
 <div id="carouselExampleCaptions" class="carousel slide pb-5" data-bs-ride="carousel">
@@ -57,19 +58,6 @@ let SideShowHTML = `
     </button>
 </div>
 `
-function ReplaceBriefIntroHTML(PageNum) {
-    let BriefIntroHTML = `
-    <!-- 簡短介紹 -->
-    <div class="card">
-    <div class="card-body">
-        <h5 class="card-title">${briefIntroReplace[PageNum]}</h5>
-        <p class="card-text">BriefIntro</p>
-    </div>
-    </div>
-    `
-    return BriefIntroHTML
-}
-
 let PageSelectHTML = `
 <!-- 頁面選擇 -->
 <div class="pageSelect">
@@ -101,30 +89,29 @@ let MoreHTML = `
 </div>
 `
 let DefaultImgHTML = `
+<img id="Default_img" src="bluecat.png" class="Zshadow rounded mx-auto d-block"
+alt="...">
 `
 
+// 變數與容器
 let LeftContainer = document.querySelector(".leftContainer");
 let RightPage = document.querySelector(".rightPage");
 let BookmarkGroup = document.querySelector(".btn-group");
-
 let width;
-$(window).resize(function () {
-    LeftContainer.innerHTML = `
-    <!-- 左頁 -->
-    <div class="leftPage">
-        <!-- 頭貼 -->
-        <div class="image">
-            <img id="Myself_img" src="resume_picture.jpg" class="rounded-circle shadow rounded mx-auto d-block"
-                alt="...">
-        </div>
-        <!-- 個人資料 -->
-        <div class="article">
-        ${initLeftContainer()}
-        </div>
+
+// Function
+function ReplaceBriefIntroHTML(PageNum) {
+    let BriefIntroHTML = `
+    <!-- 簡短介紹 -->
+    <div class="card">
+    <div class="card-body">
+        <h5 class="card-title">${briefIntroReplace[PageNum]}</h5>
+        <p class="card-text">BriefIntro</p>
+    </div>
     </div>
     `
-});
-
+    return BriefIntroHTML
+}
 function initLeftContainer() {
     width = $(window).width();
     let articleHTML = ``
@@ -158,25 +145,43 @@ function initLeftContainer() {
 }
 
 //初始化
-//LeftPage 將資料搬到ＪＳ中用inner html放入
-LeftContainer.innerHTML = `
-<!-- 左頁 -->
-<div class="leftPage">
-    <!-- 頭貼 -->
-    <div class="image">
-        <img id="Myself_img" src="resume_picture.jpg" class="rounded-circle shadow rounded mx-auto d-block"
-            alt="...">
+{
+    LeftContainer.innerHTML = `
+    <!-- 左頁 -->
+    <div class="leftPage">
+        <!-- 頭貼 -->
+        <div class="image">
+            <img id="Myself_img" src="resume_picture.jpg" class="rounded-circle shadow rounded mx-auto d-block"
+                alt="...">
+        </div>
+        <!-- 個人資料 -->
+        <div class="article">
+        ${initLeftContainer()}
+        </div>
     </div>
-    <!-- 個人資料 -->
-    <div class="article">
-    ${initLeftContainer()}
-    </div>
-</div>
 `
-RightPage.innerHTML = `
-<img id="Default_img" src="bluecat.png" class="Zshadow rounded mx-auto d-block"
-alt="...">
-`
+    RightPage.innerHTML = DefaultImgHTML
+}
+
+// RWD 頁面大小改變觸發事件
+{
+    $(window).resize(function () {
+        LeftContainer.innerHTML = `
+        <!-- 左頁 -->
+        <div class="leftPage">
+            <!-- 頭貼 -->
+            <div class="image">
+                <img id="Myself_img" src="resume_picture.jpg" class="rounded-circle shadow rounded mx-auto d-block"
+                    alt="...">
+            </div>
+            <!-- 個人資料 -->
+            <div class="article">
+            ${initLeftContainer()}
+            </div>
+        </div>
+        `
+    });
+}
 
 
 // 左右頁上下切換
