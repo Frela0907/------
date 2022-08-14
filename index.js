@@ -4,13 +4,108 @@ $(window).load(function () { // 確認整個頁面讀取完畢再將這三個div
     $("#preloader").delay(2000).fadeOut(2000);
 })
 
+// 初始化Popover
+var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+    return new bootstrap.Popover(popoverTriggerEl)
+})
+
+function CreatePopover(element) {
+    var popover = new bootstrap.Popover(document.querySelector('.popover'), {
+        container: 'body'
+    })
+    popover.show()
+}
+
+
 //Bootstrap 模板
 let briefIntroReplace = [
-    '諮商輔導',
-    '社會學',
-    '心理學',
-    '人力資源',
-    '網頁前端'
+    ['諮商輔導', `
+    學校科系 : 國立東華大學 諮商與臨床心理學系<br />
+    就讀時間 : 2016/9 ~ 2020/6<br />
+    職位、經歷、作品 : 
+    <span class="fs-6 badge bg-primary">分組專題</span> 
+    <span class="fs-6 badge bg-primary">書卷獎</span>
+    <p class="fs-6 border border-2 rounded">
+        2018年 本年度獲得國立東華大學諮商與臨床心理學系『106學年度書卷獎』，尤其在心理系專業科目上得到許多老師之肯定。（附綠一）<br />
+    </p>
+
+    條列技能 : 
+    <span class="DataPopover fs-6 badge bg-success">教育&輔導</span>
+    <span class="fs-6 badge bg-success">諮商&療育</span>
+    <span class="fs-6 badge bg-success">臨床精神診斷</span>
+    <span class="fs-6 badge bg-success">實驗&統計分析</span>
+    `],
+    ['社會學', `
+    學校科系 : 國立東華大學 社會學系(雙主修)<br />
+    就讀時間 : 2016/9 ~ 2020/6<br />
+    職位、經歷、作品 : 
+    <span class="fs-6 badge bg-primary">研究助理</span> 
+    <span class="fs-6 badge bg-primary">大專生科技部計畫</span>
+    <p class="fs-6 border border-2 rounded">
+        
+    </p>
+
+    條列技能 : 
+    <span class="fs-6 badge bg-success">SPSS</span>
+    <span class="fs-6 badge bg-success">申請與執行研究計畫</span>
+    <span class="fs-6 badge bg-success">撰寫研究報告與論文</span>
+    <span class="fs-6 badge bg-success">統計軟體操作</span>
+    <span class="fs-6 badge bg-success">調查樣本統計分析</span>
+    <span class="fs-6 badge bg-success">市場調查資料分析與報告撰寫</span>
+    `],
+    ['心理學', `
+    學校科系 : 國立中正大學 心理學研究所<br />
+    就讀時間 : 2020/9 ~ 2022/9<br />
+    職位、經歷、作品 : 
+    <span class="fs-6 badge bg-primary">工商心理實務工作坊</span> 
+    <span class="fs-6 badge bg-primary">組織行為研究工作坊</span>
+    <span class="fs-6 badge bg-primary">碩論</span>
+    <p class="fs-6 border border-2 rounded">
+        
+    </p>
+    條列技能 : 
+    <span class="fs-6 badge bg-success">SPSS</span>
+    <span class="fs-6 badge bg-success">EXCEL</span>
+    <span class="fs-6 badge bg-success">M-plus</span>
+    `],
+    ['人力資源', `
+    學校科系 : 國立中正大學 勞工關係研究所(輔所)<br />
+    就讀時間 : 2020/9 ~ 2022/9<br />
+    職位、經歷、作品 : 
+    <span class="fs-6 badge bg-primary">課程專題小論文</span> 
+    <p class="fs-6 border border-2 rounded">
+        
+    </p>
+    條列技能 : 
+    <span class="fs-6 badge bg-success">勞工保險相關法規</span>
+    <span class="fs-6 badge bg-success">績效與薪酬管理</span>
+    <span class="fs-6 badge bg-success">具備人力資源相關知識</span>
+    <span class="fs-6 badge bg-success">召募任用制度設計</span>
+    <span class="fs-6 badge bg-success">員工教育訓練與需求分析</span>
+    <span class="fs-6 badge bg-success">人員培訓、激勵、輔導與管理</span>
+    <span class="fs-6 badge bg-success">勞工安全相關法規</span>
+    <span class="fs-6 badge bg-success">報表彙整與管理</span>
+    <span class="fs-6 badge bg-success">制定與管理部門各類績效指標</span>
+    `],
+    ['網頁前端', `
+    學校科系 : UI/UX付費課程、前端訓練營<br />
+    就讀時間 : 2022/3 ~ 2023/1<br />
+    職位、經歷、作品 : 
+    <span class="fs-6 badge bg-primary">課程證書</span> 
+    <span class="fs-6 badge bg-primary">訓練營作業_github</span>
+    <span class="fs-6 badge bg-primary">個人網頁履歷_github</span>
+    <p class="fs-6 border border-2 rounded">
+        
+    </p>
+    條列技能 : 
+    <span class="fs-6 badge bg-success">HTML5</span>
+    <span class="fs-6 badge bg-success">CSS3</span>
+    <span class="fs-6 badge bg-success">JavaScript ES6</span>
+    <span class="fs-6 badge bg-success">Bootstrap</span>
+    <span class="fs-6 badge bg-success">RWD</span>
+    <span class="fs-6 badge bg-success">Restful API</span>
+    `]
 ]
 let SideShowHTML = `
 <!-- 圖片輪播 -->
@@ -89,24 +184,32 @@ let MoreHTML = `
 </div>
 `
 let DefaultImgHTML = `
-<img id="Default_img" src="bluecat.png" class="Zshadow rounded mx-auto d-block"
+<img id="Default_img" src="bluecat.png" class="shadow rounded mx-auto d-block"
 alt="...">
 `
 
 // 變數與容器
-let LeftContainer = document.querySelector(".leftContainer");
-let RightPage = document.querySelector(".rightPage");
-let BookmarkGroup = document.querySelector(".btn-group");
+let LeftContainer = null
+let RightPage = null
+let BookmarkGroup = null
+let DataPopoverList = null
 let width;
+UpdateDOMElement()
 
+function UpdateDOMElement() {
+    LeftContainer = document.querySelector(".leftContainer");
+    RightPage = document.querySelector(".rightPage");
+    BookmarkGroup = document.querySelector(".btn-group");
+    DataPopoverList = document.querySelectorAll(".DataPopover");
+}
 // Function
 function ReplaceBriefIntroHTML(PageNum) {
     let BriefIntroHTML = `
     <!-- 簡短介紹 -->
     <div class="card">
     <div class="card-body">
-        <h5 class="card-title">${briefIntroReplace[PageNum]}</h5>
-        <p class="card-text">BriefIntro</p>
+        <h5 class="card-title">${briefIntroReplace[PageNum][0]}</h5>
+        <p class="card-text">${briefIntroReplace[PageNum][1]}</p>
     </div>
     </div>
     `
@@ -201,29 +304,40 @@ function initLeftContainer() {
 }
 
 // 右頁內容替換
+
+BookmarkGroup.addEventListener("click", function (event) {
+    switch (event.target.className) {
+        case "btn-one btn fs-6":
+            RightPage.innerHTML =
+                SideShowHTML + ReplaceBriefIntroHTML(0)
+            break;
+        case "btn-two btn fs-6":
+            RightPage.innerHTML =
+                SideShowHTML + ReplaceBriefIntroHTML(1)
+            break;
+        case "btn-three btn fs-6":
+            RightPage.innerHTML =
+                SideShowHTML + ReplaceBriefIntroHTML(2)
+            break;
+        case "btn-four btn fs-6":
+            RightPage.innerHTML =
+                SideShowHTML + ReplaceBriefIntroHTML(3)
+            break;
+        case "btn-five btn fs-6":
+            RightPage.innerHTML =
+                SideShowHTML + ReplaceBriefIntroHTML(4)
+            break;
+    }
+    //更新右ＤＯＭ
+    UpdateDOMElement()
+})
+
+
+// Popover 觸發事件
 {
-    BookmarkGroup.addEventListener("click", function (event) {
-        switch (event.target.className) {
-            case "btn-one btn fs-6":
-                RightPage.innerHTML =
-                    SideShowHTML + ReplaceBriefIntroHTML(0) + PageSelectHTML + MoreHTML
-                break;
-            case "btn-two btn fs-6":
-                RightPage.innerHTML =
-                    SideShowHTML + ReplaceBriefIntroHTML(1) + PageSelectHTML + MoreHTML
-                break;
-            case "btn-three btn fs-6":
-                RightPage.innerHTML =
-                    SideShowHTML + ReplaceBriefIntroHTML(2) + PageSelectHTML + MoreHTML
-                break;
-            case "btn-four btn fs-6":
-                RightPage.innerHTML =
-                    SideShowHTML + ReplaceBriefIntroHTML(3) + PageSelectHTML + MoreHTML
-                break;
-            case "btn-five btn fs-6":
-                RightPage.innerHTML =
-                    SideShowHTML + ReplaceBriefIntroHTML(4) + PageSelectHTML + MoreHTML
-                break;
-        }
+    DataPopoverList.forEach(element => {
+        element.addEventListener("mouseover", function (event) {
+            console.log("triggered")
+        })
     })
 }
